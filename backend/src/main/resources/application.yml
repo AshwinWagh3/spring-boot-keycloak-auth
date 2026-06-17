@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/my-realm
+
+keycloak:
+  realm: my-realm
+  auth-server-url: http://localhost:8080
+  resource: my-client
+  credentials:
+    secret: your-client-secret
+  use-resource-role-mappings: true
+  bearer-only: true
