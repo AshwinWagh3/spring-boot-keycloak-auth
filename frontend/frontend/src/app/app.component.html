@@ -1,0 +1,39 @@
+<div class="app-container">
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">🔐</span>
+      <span class="brand-text">Keycloak Auth</span>
+      <span class="brand-author">by Ashwin Wagh</span>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/">Home</a>
+      <a routerLink="/dashboard" *ngIf="isLoggedIn">Dashboard</a>
+      <a routerLink="/profile" *ngIf="isLoggedIn">Profile</a>
+      <a routerLink="/admin" *ngIf="isLoggedIn">Admin</a>
+    </div>
+    <div class="nav-actions">
+      <span class="user-info" *ngIf="isLoggedIn">
+        Welcome, {{ username }} 👋
+      </span>
+      <button *ngIf="!isLoggedIn" class="btn btn-primary" (click)="login()">
+        🔑 Login
+      </button>
+      <button *ngIf="isLoggedIn" class="btn btn-danger" (click)="logout()">
+        🚪 Logout
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Built with ❤️ by Ashwin Wagh | GitHub: ashwinwagh3</p>
+  </footer>
+</div>
